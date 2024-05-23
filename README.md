@@ -45,14 +45,13 @@ The CSV file will contain the following columns:
 - `read_permission`: Whether the group has read permission.
 - `write_permission`: Whether the group has write permission.
 - `admin_permission`: Whether the group has admin permission.
-- Empty strings will be used to indicate the absence of permissions.
 
 ## Example
 ```csv
 |type         |slug_or_key     |group_name|read_permission           |write_permission|admin_permission|
 |-------------|----------------|----------|--------------------------|----------------|----------------|
-|repository   |repo1           |group1    |read                      |                |admin           |
-|repository   |repo2           |group2    |                          |                |admin           |
-|project      |proj1           |group1    |read                      |write           |                |
-|project      |proj2           |group2    |read                      |                |                |
+|repository   |repo1           |group1    |True                      |False           |True            |
+|repository   |repo2           |group2    |False                     |False           |True            |
+|project      |proj1           |group1    |True                      |True            |False           |
+|project      |proj2           |group2    |True                      |False           |False           |
 ```
