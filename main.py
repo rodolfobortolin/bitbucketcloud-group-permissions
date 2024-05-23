@@ -101,9 +101,9 @@ def main():
             permissions = get_repo_permissions(auth, repo_slug)
             for permission in permissions:
                 group_name = permission['group']['name'] if 'group' in permission else 'N/A'
-                read_permission = 'read' in permission['permissions'] if 'permissions' in permission else ''
-                write_permission = 'write' in permission['permissions'] if 'permissions' in permission else ''
-                admin_permission = 'admin' in permission['permissions'] if 'permissions' in permission else ''
+                read_permission = 'read' in permission['permission'] if 'permission' in permission else False
+                write_permission = 'write' in permission['permission'] if 'permission' in permission else False
+                admin_permission = 'admin' in permission['permission'] if 'permission' in permission else False
                 writer.writerow(['repository', repo_slug, group_name, read_permission, write_permission, admin_permission])
 
         # Fetch and write project permissions
@@ -112,9 +112,9 @@ def main():
             permissions = get_project_permissions(auth, project_key)
             for permission in permissions:
                 group_name = permission['group']['name'] if 'group' in permission else 'N/A'
-                read_permission = 'read' in permission['permissions'] if 'permissions' in permission else ''
-                write_permission = 'write' in permission['permissions'] if 'permissions' in permission else ''
-                admin_permission = 'admin' in permission['permissions'] if 'permissions' in permission else ''
+                read_permission = 'read' in permission['permission'] if 'permission' in permission else False
+                write_permission = 'write' in permission['permission'] if 'permission' in permission else False
+                admin_permission = 'admin' in permission['permission'] if 'permission' in permission else False
                 writer.writerow(['project', project_key, group_name, read_permission, write_permission, admin_permission])
 
     logging.info(f"Permissions written to CSV file at {csv_file_path}")
